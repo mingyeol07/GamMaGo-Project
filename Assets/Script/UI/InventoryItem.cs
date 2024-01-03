@@ -5,7 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using DG.Tweening;
 
+[RequireComponent(typeof(Image))]
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler,IDropHandler
 {
     //[SerializeField] private Transform _originParent;
@@ -18,6 +20,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         //if(_dragTransform == null) _dragTransform = GameObject.Find("ItemVeiw");
         _image = GetComponent<Image>();
+    }
+    private void OnMouseEnter()
+    {
+        print("Enter");
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -42,7 +48,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (hit)
         {
             //print("hit"); 
-            UseItem(hit.transform.gameObject.GetComponent<TouchObgect>());
+            UseItem(hit.transform.gameObject.GetComponent<TouchObject>());
         }
 
         _image.enabled = true;
@@ -54,7 +60,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         print($"{FollowItem.ins.item}");
     }
-    private void UseItem(TouchObgect obj)
+    private void UseItem(TouchObject obj)
     {
         if (obj.ItemUsing(item))
         {

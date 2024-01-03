@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class PopupPanel : MonoBehaviour
 {
     [SerializeField] private Image _bgIMG;

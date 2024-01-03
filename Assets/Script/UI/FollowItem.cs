@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class FollowItem : Singleton<FollowItem>
 {
     private Image _image;
     public int item { get; private set; }
+    public bool isItemDrag { get; private set; }
     protected override void Awake()
     {
         if (_ins == null)

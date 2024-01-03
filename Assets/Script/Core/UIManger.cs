@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManger : Singleton<UIManger>
 {
-    public bool isTestShow { get; private set; }
+    public bool isTextShow { get; private set; }
     [SerializeField] private TextBox _textBox;
 
     private bool _nowAlert;
@@ -65,9 +65,9 @@ public class UIManger : Singleton<UIManger>
     }
     public void ShowText(TextList list)
     {
-        if (!isTestShow)
+        if (!isTextShow)
         {
-            isTestShow = true;
+            isTextShow = true;
             _textData = list;
             _textIndex = 0;
             _textBox.ShowText();
@@ -75,12 +75,12 @@ public class UIManger : Singleton<UIManger>
     }
     void HideText()
     {
-        isTestShow = false;
+        isTextShow = false;
         _textBox.HideText();
     }
     private void NextText()
     {
-        if (isTestShow)
+        if (isTextShow)
         {
             if (_textBox.isTyping) _textBox.TypingSkip();
             else
@@ -151,6 +151,6 @@ public class UIManger : Singleton<UIManger>
     }
     public bool NoneAlert()
     {
-        return !_nowAlert && !isTestShow;
+        return !_nowAlert && !isTextShow;
     }
 }
