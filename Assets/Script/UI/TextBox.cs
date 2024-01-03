@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class TextBox : MonoBehaviour
 {
     [SerializeField] Image _bg;
