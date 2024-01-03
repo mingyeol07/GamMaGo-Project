@@ -6,37 +6,23 @@ using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Collider2D),typeof(SpriteOutLine))]
+[RequireComponent(typeof(Collider2D))]
+[AddComponentMenu("devchanho/TouchObject")]
 public abstract class TouchObject : MonoBehaviour
 {
-    [SerializeField] Sprite _idle_img;
-    [SerializeField] Sprite _onMouse_img;
-    [SerializeField] Sprite _onItem_img;
     [SerializeField] protected int[] _interactionItem;
-    protected SpriteRenderer _renderer { get; private set; }
-    private SpriteOutLine _lineRenderer;
-    [SerializeField] GameObject _particle;
+    //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
     
     protected virtual void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
-        _lineRenderer = GetComponent<SpriteOutLine>();
         _originPos = transform.position;
     }
     protected virtual void Start()
     {
         MouseExitEvent();
+        //_particle = transform.GetChild(0).gameObject;
     }
-    //{        
-    //    Eventbus.GetEvent(1, ()=> {
-    //        //Inventory.ins.GetItem(_item);
-    //        //Inventory.ins.GetItem(_item);
-    //        UIManger.ins.Alert("Hello world");
-    //        UIManger.ins.Alert("And...");
-    //        UIManger.ins.Alert("Hello Unity!");
-    //    });
-    //}
     private void OnMouseEnter()
     {
         
@@ -59,39 +45,23 @@ public abstract class TouchObject : MonoBehaviour
     {
         if (!FollowItem.ins.isItemDrag)
         {
-            transform.DOScale(1.2f, 0.1f);
-            _lineRenderer.enabled = true;
-            _particle.SetActive(true);
-            //transform.DOShakePosition(3).SetDelay(3.0f);;
-            _renderer.sprite = _onMouse_img;
+            transform.DOScale(1.1f, 0.1f);
+            //_particle.SetActive(true);
         }
         else
         {
             if(Array.Exists(_interactionItem,x => x == FollowItem.ins.item.item.itemCode))
             {
-                //transform.DOScale(1.2f, 0.2f);
-                //transform.DOShakePosition(3).SetDelay(3.0f);;
-                _lineRenderer.enabled = true;
-                _particle.SetActive(true);
-                _renderer.sprite = _onItem_img;
+                transform.DOScale(1.1f, 0.1f);
+                //_particle.SetActive(true);
             }
         }
     }
     protected virtual void MouseExitEvent() 
     {
-        _lineRenderer.enabled = false;
-        _particle.SetActive(false);
         transform.DOScale(1.0f, 0.1f);
-        _renderer.sprite = _idle_img;
+        //_particle.SetActive(false);
     }
     protected abstract void TouchEvent();
-    //{
-    //    UIManger.ins.ShowText(_eventText);
-    //    print("aaa");
-    //}
-    public abstract bool ItemUsing(int code);
-    //{
-    //    return true;
-    //}
-    //FollowItem °¨Áö
+    public abstract void ItemUsing(InventoryItem code);
 }

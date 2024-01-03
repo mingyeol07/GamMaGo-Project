@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
     {
         public int mat1, mat2;
         public ItemData result;
-        public ItemRecipe(int mat1,int mat2, ItemData result)
+        public ItemRecipe(int mat1, int mat2, ItemData result)
         {
             this.mat1 = mat1;
             this.mat2 = mat2;
@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     }
     [SerializeField]
     ItemRecipe[] ItemRecipes;
+
     public void GetItems(params ItemData[] items)
     {
         foreach(ItemData data in items)
@@ -34,8 +35,8 @@ public class GameManager : Singleton<GameManager>
         {
             int _index = Array.FindIndex(ItemRecipes, x =>
             {
-                print($"x.mat1:{x.mat1}, mat1:{mat1}, x.mat2:{x.mat2}, mat2:{mat2}");
-                return (x.mat1 == mat1 && x.mat2 == mat2) || (x.mat1 == mat2 && x.mat2 == mat1);
+                print($"x.mat1:{x.mat1}, mat1:{mat1}, x.mat2:{(x.mat2)}, mat2:{mat2}");
+                return (x.mat1 == mat1 && (x.mat2) == mat2) || ((x.mat1) == mat2 && (x.mat2) == mat1);
             });
             if (_index != -1) return ItemRecipes[_index].result;
         }

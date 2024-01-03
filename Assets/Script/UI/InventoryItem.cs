@@ -71,16 +71,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void DeleteItem()
     {
+        DOTween.Kill(transform);
         useEvent?.Invoke();
         //Destroy(transform.parent.gameObject);
         Destroy(gameObject);
     }
     public void UseItem(TouchObject obj)
     {
-        if (obj.ItemUsing(item.itemCode))
-        {
-            DeleteItem();
-        }
+        obj.ItemUsing(this);
+            //DeleteItem();
     }
     public void SetData(ItemData code,Sprite img)
     {
@@ -91,13 +90,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(!FollowItem.ins.isItemDrag)
-            transform.DOScale(1.2f,0.2f);
+            transform?.DOScale(1.2f,0.2f);
         //print("Enter");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.DOScale(1.0f, 0.2f);
+        transform?.DOScale(1.0f, 0.2f);
         //print("Exit");
     }
 }

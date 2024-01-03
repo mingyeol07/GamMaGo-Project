@@ -10,4 +10,11 @@ public class ItemData : ScriptableObject
     public string Name;
     public string Version;
     public Sprite img;
+
+#if UNITY_EDITOR
+    public void Awake()
+    {
+        Debug.Log($"{name}:{itemCode}");
+    }
+#endif
 }

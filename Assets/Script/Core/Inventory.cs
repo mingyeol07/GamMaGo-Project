@@ -5,6 +5,11 @@ using DG.Tweening;
 
 public class Inventory : MonoBehaviour
 {
+    public enum Stage
+    {
+        Stage1, Stage2, Stage3
+    }
+
     [SerializeField] private GameObject _content;
     [SerializeField] private GameObject _contentItem;
     [SerializeField] private List<int> _items = new List<int>();
@@ -18,7 +23,7 @@ public class Inventory : MonoBehaviour
             obj.transform.SetParent(_content.transform);
 
             InventoryItem itemComponent = obj.GetComponentInChildren<InventoryItem>();
-            itemComponent.useEvent += () => _items.Remove(data.itemCode);
+            //itemComponent.useEvent += () => _items.Remove(data.itemCode);
             itemComponent.SetData(data,data.img);
             //item.GetComponentInChildren<UnityEngine.UI.Image>().sprite = data.img;
             //itemComponent.item = data.itemCode;
