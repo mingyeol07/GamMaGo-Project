@@ -11,6 +11,7 @@ public class DropItem : MonoBehaviour, IDropHandler
     {
         if(eventData.pointerDrag != null)
         {
+            Debug.Log("Dd");
             eventData.pointerDrag.transform.SetParent(rect);
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
         }
