@@ -9,11 +9,8 @@ public class DropItem : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        if(eventData.pointerDrag != null)
-        {
-            Debug.Log("Dd");
-            eventData.pointerDrag.transform.SetParent(rect);
-            eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
-        }
+
+        Debug.Log("Dd");
+        
     }
 }

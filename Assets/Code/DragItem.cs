@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
+    public int itemCode;
     [SerializeField] private Canvas canvas;
 
     private RectTransform rectTransform;
@@ -35,15 +36,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        RaycastHit2D hit;
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        hit = Physics2D.Raycast(pos, transform.forward, 1f);// hit
-        if (hit) { print("hit"); }
-        transform.position = previousPos.position;
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         TweenRotation();
@@ -62,5 +54,18 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         mySequence.Append(transform.DORotate(new Vector3(0, 0, -8), 0.1f));
         mySequence.Append(transform.DORotate(new Vector3(0, 0, 6), 0.1f));
         mySequence.Append(transform.DORotate(new Vector3(0, 0, 0), 0.1f));
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        InPot();
+        Debug.Log("dd");
+    }
+
+    public void InPot()
+    {
+        Sequence mySequence = DOTween.Sequence();
+        
+        
     }
 }
