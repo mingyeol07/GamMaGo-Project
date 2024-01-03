@@ -15,5 +15,5 @@ public class GameManager : Singleton<GameManager>
         }
         
     }
-    //인번토리/게임매니자,상속
+    //인번토리/게임매니자,상속/아이템 합성/이펙트
 }
