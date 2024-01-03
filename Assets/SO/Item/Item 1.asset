@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bb1b80e8d257c43a9769afc663d026, type: 3}
   m_Name: Item 1
   m_EditorClassIdentifier: 
-  itemCode: 2
-  Name: "\uB178\uB048"
-  Version: "\uC544\uC9C1 \uC4F8\uB9CC\uD55C \uB178\uB048"
+  itemCode: 1
+  Name: "\uC2E0\uD638\uB4F1"
+  Version: 
   img: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}

@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b7314e08d2879429316619ed8aef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 0
+  item: {fileID: 0}
   isItemDrag: 0
 --- !u!1 &473316521
 GameObject:
@@ -1784,6 +1784,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 831564982}
+  ItemRecipes:
+  - mat1: 3
+    mat2: 4
+    result: {fileID: 11400000, guid: 5982e5c42bfdb7b4c90006c5c4f81fef, type: 2}
+  - mat1: 3
+    mat2: 4
+    result: {fileID: 11400000, guid: 5982e5c42bfdb7b4c90006c5c4f81fef, type: 2}
 --- !u!4 &1388192615
 Transform:
   m_ObjectHideFlags: 0
@@ -2588,7 +2595,7 @@ MonoBehaviour:
   _onItem_img: {fileID: 21300000, guid: e92fc44f12c21dd44a49e390f39f7ffd, type: 3}
   _interactionItem: 01000000
   _particle: {fileID: 263667146}
-  _testItem: {fileID: 11400000, guid: 32715ac4060a4344fa3183e869e809c9, type: 2}
+  _testItem: {fileID: 11400000, guid: e2aae6b8f4b44b7438e398a6aecdd1c3, type: 2}
   _testItem2: {fileID: 11400000, guid: acf84430fc69b6040ab090d9ea0a9c38, type: 2}
 --- !u!114 &1865635078
 MonoBehaviour:

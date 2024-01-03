@@ -58,8 +58,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointer
 
     public void OnDrop(PointerEventData eventData)
     {
-        InPot();
-        Debug.Log("dd");
+        
     }
 
     public void InPot()
