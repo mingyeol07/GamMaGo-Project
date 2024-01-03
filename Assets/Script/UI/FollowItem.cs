@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class FollowItem : Singleton<FollowItem>
 {
     private Image _image;
-    public int item;//{ get; private set; }
+    public InventoryItem item;//{ get; private set; }
     public bool isItemDrag;//{ get; private set; }
     protected override void Awake()
     {
@@ -23,7 +23,7 @@ public class FollowItem : Singleton<FollowItem>
     {
         HideFollow();
     }
-    public void StartFollow(Sprite img,int code)
+    public void StartFollow(Sprite img,InventoryItem code)
     {
         _image.enabled = true;
         _image.sprite = img;

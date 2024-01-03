@@ -6,7 +6,7 @@ using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
+[RequireComponent(typeof(SpriteRenderer), typeof(Collider2D),typeof(SpriteOutLine))]
 public abstract class TouchObject : MonoBehaviour
 {
     [SerializeField] Sprite _idle_img;
@@ -41,7 +41,7 @@ public abstract class TouchObject : MonoBehaviour
     {
         
         if (UIManger.ins.NoneAlert())
-            if (FollowItem.ins.isItemDrag) MouseEnterEvent(FollowItem.ins.item);
+            if (FollowItem.ins.isItemDrag) MouseEnterEvent(FollowItem.ins.item.item.itemCode);
             else MouseEnterEvent(0);
 
     }
@@ -67,7 +67,7 @@ public abstract class TouchObject : MonoBehaviour
         }
         else
         {
-            if(Array.Exists(_interactionItem,x => x == FollowItem.ins.item))
+            if(Array.Exists(_interactionItem,x => x == FollowItem.ins.item.item.itemCode))
             {
                 //transform.DOScale(1.2f, 0.2f);
                 //transform.DOShakePosition(3).SetDelay(3.0f);;

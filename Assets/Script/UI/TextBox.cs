@@ -32,6 +32,7 @@ public class TextBox : MonoBehaviour
         isTyping = true;
         for (int i = 0;i < _textStr.Length+1;i++)
         {
+            if (!isTyping) break;
             _text.text = _textStr.Substring(0,i);
             yield return new WaitForSeconds(1 / typingSpeed);
         }
