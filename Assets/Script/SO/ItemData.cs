@@ -9,5 +9,5 @@ public class ItemData : ScriptableObject
     public int itemCode;
     public string Name;
     public string Version;
-    public Image img;
+    public Sprite img;
 }

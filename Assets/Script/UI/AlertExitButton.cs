@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Remover : MonoBehaviour
+public class AlertExitButton : MonoBehaviour
 {
     public void Onckilck()
     {
-        GameManager.ins.HideAlert();
+        //print("aa");
+        UIManger.ins.ExitAlert();
     }
 }
