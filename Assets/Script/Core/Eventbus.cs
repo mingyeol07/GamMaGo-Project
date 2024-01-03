@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Eventbus : MonoBehaviour
 {
+    //전역 변수로
     private static readonly Dictionary<int, UnityEvent> events = new Dictionary<int, UnityEvent>();
     public static void GetEvent(int code,UnityAction e)
     {

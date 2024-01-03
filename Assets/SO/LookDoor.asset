@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typingSpeed: 10
   Texts:
+  - "\uBB38\uC774 \uB2EB\uD600\uC788\uB294 \uCC28\uACE0\uC9C0\uB2E4"
   - "\uAC04\uB2E8\uD55C \uC790\uBB3C\uC1E0\uB85C \uC7A0\uACA8\uC788\uB2E4"
   Event: 0

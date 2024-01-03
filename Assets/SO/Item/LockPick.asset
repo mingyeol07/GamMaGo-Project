@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bb1b80e8d257c43a9769afc663d026, type: 3}
   m_Name: LockPick
   m_EditorClassIdentifier: 
-  itemCode: 0
-  Name: 
-  Version: 
+  itemCode: 5
+  Name: "\uB77D \uD53D"
+  Version: "\uAC00\uC7A5 \uAE30\uBCF8\uC801\uC778 \uB77D \uD53D"
   img: {fileID: 0}
