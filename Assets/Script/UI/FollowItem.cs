@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class FollowItem : Singleton<FollowItem>
 {
     private Image _image;
-    public int item { get; private set; }
-    public bool isItemDrag { get; private set; }
+    public int item;//{ get; private set; }
+    public bool isItemDrag;//{ get; private set; }
     protected override void Awake()
     {
         if (_ins == null)
@@ -17,6 +17,7 @@ public class FollowItem : Singleton<FollowItem>
         }
         else Destroy(gameObject);
         _image = GetComponent<Image>();
+        isItemDrag = false;
     }
     private void Start()
     {
@@ -27,9 +28,11 @@ public class FollowItem : Singleton<FollowItem>
         _image.enabled = true;
         _image.sprite = img;
         item = code;
+        isItemDrag = true;
     }
     public void HideFollow()
     {
         _image.enabled = false;
+        isItemDrag = false;
     }
 }

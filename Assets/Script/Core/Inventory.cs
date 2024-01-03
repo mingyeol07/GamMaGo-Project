@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] GameObject _content;
-    [SerializeField] GameObject _contentItem;
-    [SerializeField] List<int> _items = new List<int>();
+    [SerializeField] private GameObject _content;
+    [SerializeField] private GameObject _contentItem;
+    [SerializeField] private List<int> _items = new List<int>();
+
+    private bool _inventoryOpen;
     public bool GetItem(ItemData data)
     {
         if (!_items.Contains(data.itemCode))
@@ -29,5 +32,13 @@ public class Inventory : MonoBehaviour
     public bool IsHaveItem(int code)
     {
         return _items.Contains(code);
+    }
+    public void OnOffInventory()
+    {
+        Sequence mySequence = DOTween.Sequence();
+        DOTween.Rewind(transform); transform.localPosition = new Vector3(!_inventoryOpen ? 810 : 1110,0);
+        mySequence.Append(transform.DOLocalMoveX(_inventoryOpen ? 810 : 1110, .5f).SetEase(Ease.OutQuad));
+        //equence mySequence = DOTween.Sequence();
+        _inventoryOpen = !_inventoryOpen;
     }
 }

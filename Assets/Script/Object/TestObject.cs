@@ -6,6 +6,11 @@ public class TestObject : TouchObject
 {
     [SerializeField] ItemData _testItem;
     [SerializeField] ItemData _testItem2;
+    protected override void Start()
+    {
+        base.Start();
+        UIManger.ins.alertEvent += MouseExitEvent;
+    }
     protected override void TouchEvent()
     {
         GameManager.ins.GetItems(_testItem, _testItem2);

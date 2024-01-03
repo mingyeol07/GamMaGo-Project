@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,19 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
 public abstract class TouchObject : MonoBehaviour
 {
-    [SerializeField] Sprite Idle_img;
-    [SerializeField] Sprite OnMouse_img;
+    [SerializeField] Sprite _idle_img;
+    [SerializeField] Sprite _onMouse_img;
+    [SerializeField] Sprite _onItem_img;
+    [SerializeField] protected int[] _interactionItem;
     protected SpriteRenderer _renderer { get; private set; }
+    private SpriteOutLine _lineRenderer;
+    [SerializeField] GameObject _particle;
     protected Vector3 _originPos { get; private set; }
     
     protected virtual void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _lineRenderer = GetComponent<SpriteOutLine>();
         _originPos = transform.position;
     }
     protected virtual void Start()
@@ -51,14 +57,32 @@ public abstract class TouchObject : MonoBehaviour
     }
     protected virtual void MouseEnterEvent(int code)
     {
-        transform.DOScale(1.2f, 0.2f);
-        //transform.DOShakePosition(3).SetDelay(3.0f);;
-        _renderer.sprite = OnMouse_img;
+        if (!FollowItem.ins.isItemDrag)
+        {
+            transform.DOScale(1.2f, 0.1f);
+            _lineRenderer.enabled = true;
+            _particle.SetActive(true);
+            //transform.DOShakePosition(3).SetDelay(3.0f);;
+            _renderer.sprite = _onMouse_img;
+        }
+        else
+        {
+            if(Array.Exists(_interactionItem,x => x == FollowItem.ins.item))
+            {
+                //transform.DOScale(1.2f, 0.2f);
+                //transform.DOShakePosition(3).SetDelay(3.0f);;
+                _lineRenderer.enabled = true;
+                _particle.SetActive(true);
+                _renderer.sprite = _onItem_img;
+            }
+        }
     }
     protected virtual void MouseExitEvent() 
     {
-        transform.DOScale(1.0f, 0.2f);
-        _renderer.sprite = Idle_img;
+        _lineRenderer.enabled = false;
+        _particle.SetActive(false);
+        transform.DOScale(1.0f, 0.1f);
+        _renderer.sprite = _idle_img;
     }
     protected abstract void TouchEvent();
     //{

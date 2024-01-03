@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
@@ -14,6 +16,8 @@ public class UIManger : Singleton<UIManger>
 
     int _textIndex;
     TextList _textData;
+
+    public event Action alertEvent;
     private struct AlertData
     {
         public string title;
@@ -65,6 +69,7 @@ public class UIManger : Singleton<UIManger>
     }
     public void ShowText(TextList list)
     {
+        alertEvent();
         if (!isTextShow)
         {
             isTextShow = true;
@@ -137,6 +142,7 @@ public class UIManger : Singleton<UIManger>
     }
     void ShowAlert()
     {
+        alertEvent?.Invoke();
         if (_alertQueue.Count != 0)
         {
             AlertData alertData = _alertQueue.Dequeue();

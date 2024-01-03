@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 [RequireComponent(typeof(Image))]
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler,IDropHandler
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler,IDropHandler,IPointerEnterHandler, IPointerExitHandler
 {
     //[SerializeField] private Transform _originParent;
     //private static GameObject _dragTransform;
@@ -21,10 +21,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         //if(_dragTransform == null) _dragTransform = GameObject.Find("ItemVeiw");
         _image = GetComponent<Image>();
     }
-    private void OnMouseEnter()
-    {
-        print("Enter");
-    }
+    //private void OnMouseEnter()
+    //{
+    //    print("Enter");
+    //}
     public void OnBeginDrag(PointerEventData eventData)
     {
         FollowItem.ins.StartFollow(_image.sprite,item);
@@ -73,5 +73,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = code;
         _image.sprite = img;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(!FollowItem.ins.isItemDrag)
+            transform.DOScale(1.4f,0.2f);
+        //print("Enter");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        transform.DOScale(1.0f, 0.2f);
+        //print("Exit");
     }
 }
