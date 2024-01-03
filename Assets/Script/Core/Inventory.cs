@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
 
             InventoryItem itemComponent = obj.GetComponentInChildren<InventoryItem>();
             itemComponent.useEvent += () => _items.Remove(data.itemCode);
-            itemComponent.SetData(data.itemCode,data.img);
+            itemComponent.SetData(data,data.img);
             //item.GetComponentInChildren<UnityEngine.UI.Image>().sprite = data.img;
             //itemComponent.item = data.itemCode;
 

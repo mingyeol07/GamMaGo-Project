@@ -13,7 +13,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //[SerializeField] private Transform _originParent;
     //private static GameObject _dragTransform;
     private Image _image;
-    private int item;
+    public ItemData item { get; private set; }
     public event Action useEvent;
 
     private void Awake()
@@ -27,7 +27,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //}
     public void OnBeginDrag(PointerEventData eventData)
     {
-        FollowItem.ins.StartFollow(_image.sprite,item);
+        FollowItem.ins.StartFollow(_image.sprite,this);
         _image.enabled = false;
         //_image.raycastTarget = false;
         //_originParent = transform.parent;
@@ -58,18 +58,31 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void OnDrop(PointerEventData eventData)
     {
-        print($"{FollowItem.ins.item}");
-    }
-    private void UseItem(TouchObject obj)
-    {
-        if (obj.ItemUsing(item))
+        int itemCode = FollowItem.ins.item.item.itemCode;
+        ItemData itemData = GameManager.ins.ItemSynthesis(item.itemCode, itemCode);
+        if (itemData != null)
         {
-            useEvent?.Invoke();
-            //Destroy(transform.parent.gameObject);
-            Destroy(gameObject);
+            GameManager.ins.GetItems(itemData);
+
+            FollowItem.ins.HideFollow();
+            FollowItem.ins.item.DeleteItem();
+            DeleteItem();
         }
     }
-    public void SetData(int code,Sprite img)
+    public void DeleteItem()
+    {
+        useEvent?.Invoke();
+        //Destroy(transform.parent.gameObject);
+        Destroy(gameObject);
+    }
+    public void UseItem(TouchObject obj)
+    {
+        if (obj.ItemUsing(item.itemCode))
+        {
+            DeleteItem();
+        }
+    }
+    public void SetData(ItemData code,Sprite img)
     {
         item = code;
         _image.sprite = img;
@@ -78,7 +91,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(!FollowItem.ins.isItemDrag)
-            transform.DOScale(1.4f,0.2f);
+            transform.DOScale(1.2f,0.2f);
         //print("Enter");
     }
 
