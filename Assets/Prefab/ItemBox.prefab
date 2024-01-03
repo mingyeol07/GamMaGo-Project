@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483824875045790752}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ItemBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 5745618416549666562}
   - component: {fileID: 7622001888157139542}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ItemIMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _originParent: {fileID: 0}
+  item: {fileID: 11400000, guid: 32715ac4060a4344fa3183e869e809c9, type: 2}

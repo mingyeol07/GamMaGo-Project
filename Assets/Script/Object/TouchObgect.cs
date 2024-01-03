@@ -4,45 +4,47 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class TouchObgect : MonoBehaviour,IDropHandler
+public class TouchObgect : MonoBehaviour
 {
     [SerializeField] Sprite Idle_img;
     [SerializeField] Sprite OnMouse_img;
 
-    [SerializeField] TextList a;
-    [SerializeField] ItemData item;
-    private SpriteRenderer render;
+    [SerializeField] TextList _eventText;
+    [SerializeField] ItemData _item;
+    private SpriteRenderer _renderer;
     private void Awake()
     {
-        render = GetComponent<SpriteRenderer>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {        
-        Eventbus.GetEvent(1, ()=> GameManager.ins.GetItem(item));
+        Eventbus.GetEvent(1, ()=> {
+            //Inventory.ins.GetItem(_item);
+            //Inventory.ins.GetItem(_item);
+            UIManger.ins.Alert("Hello world",string.Empty,null);
+            UIManger.ins.Alert("And...",string.Empty,null);
+            UIManger.ins.Alert("Hello Unity!",string.Empty,null);
+        });
     }
     private void OnMouseEnter()
     {
-        render.sprite = OnMouse_img;
+        _renderer.sprite = OnMouse_img;
     }
     private void OnMouseExit()
     {
-        render.sprite = Idle_img;
+        _renderer.sprite = Idle_img;
     }
     private void OnMouseDown()
     {
-        if (GameManager.ins.NoneAlert())
-            TextManger.ins.ShowText(a);
-    }
-    private void OnMouseUp()
-    {
-        
+        UIManger.ins.ShowText(_eventText);
     }
     private void TouchEvent()
     {
-
-    }
-    public void OnDrop(PointerEventData eventData)
-    {
         print("aaa");
+    }
+
+    public bool ItemUsing(int code)
+    {
+        return true;
     }
 }

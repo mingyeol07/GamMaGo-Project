@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c6e92a2b43a184d96414a76602b469, type: 3}
   m_Name: TextList
   m_EditorClassIdentifier: 
+  typingSpeed: 10
   Texts:
   - "\uC624\uC624\uC624"
   - "\uD55C\uAE00\uC774"

@@ -6,13 +6,27 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject _content;
     [SerializeField] GameObject _contentItem;
-    public void ItemListReset()
+    [SerializeField] List<int> _items = new List<int>();
+    public void GetItem(ItemData data)
     {
-        foreach (Transform obj in _content.transform) Destroy(obj.gameObject);
+        if (!_items.Contains(data.itemCode))
+        {
+            GameObject obj = Instantiate(_contentItem);
+            obj.transform.SetParent(_content.transform);
+
+            GameObject item = obj.transform.GetChild(0).gameObject;
+            InventoryItem itemComponent = item.GetComponentInChildren<InventoryItem>();
+            itemComponent.useEvent += () => _items.Remove(data.itemCode);
+            itemComponent.SetData(data.itemCode,data.img);
+            //item.GetComponentInChildren<UnityEngine.UI.Image>().sprite = data.img;
+            //itemComponent.item = data.itemCode;
+
+            _items.Add(data.itemCode);
+            UIManger.ins.Alert(data.Name, data.Version,data.img);
+        }
     }
-    public void AddItem()
+    public bool IsHaveItem(int code)
     {
-        GameObject obj = Instantiate(_contentItem);
-        obj.transform.SetParent(_content.transform);
+        return _items.Contains(code);
     }
 }

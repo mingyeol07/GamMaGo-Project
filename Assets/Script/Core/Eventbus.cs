@@ -31,6 +31,6 @@ public class Eventbus : MonoBehaviour
     public static void EventInvoke(int code)
     {
         UnityEvent eve;
-        if (events.TryGetValue(code, out eve))eve.Invoke();
+        if (events.TryGetValue(code, out eve))eve?.Invoke();
     }
 }
