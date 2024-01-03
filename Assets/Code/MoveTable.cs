@@ -10,7 +10,7 @@ public class MoveTable : MonoBehaviour
     [SerializeField] private GameObject _leftBtn;
     [SerializeField] private GameObject _rightBtn;
 
-    [SerializeField] private GameObject _inBtn;
+    [SerializeField] private CanvasGroup _inBtn;
 
     [SerializeField] private CanvasGroup _MoveBtn;
 
@@ -28,21 +28,30 @@ public class MoveTable : MonoBehaviour
         _leftBtn.gameObject.SetActive(true);
     }
 
-    public void OnOffBtn()
+    public void OnOffBtn(CanvasGroup group)
     {
-        if (_MoveBtn.alpha == 0)
+        if (group.alpha == 0)
         {
-            _MoveBtn.alpha = 1;
-            _MoveBtn.blocksRaycasts = true;
-            _inBtn.gameObject.SetActive(false);
+            group.alpha = 1;
+            group.blocksRaycasts = true;
+            _inBtn.alpha = 1;
+            _inBtn.interactable = true;
+            _MoveBtn.gameObject.SetActive(false);
         }
         else
         {
-            _MoveBtn.alpha = 0;
-            _MoveBtn.blocksRaycasts = false;
-            _inBtn.gameObject.SetActive(true);
+            group.alpha = 0;
+            group.blocksRaycasts = false;
+            _inBtn.alpha = 0;
+            _inBtn.interactable = false;
+            _MoveBtn.gameObject.SetActive(true);
         }
     }
-
     
+    public void OnOffBackBtn()
+    {
+        if (_inBtn.interactable)
+            _inBtn.interactable = false;
+        else _inBtn.interactable = true;
+    }
 }

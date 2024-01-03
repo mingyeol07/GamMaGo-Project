@@ -5,5 +5,8 @@ using DG.Tweening;
 
 public class HelpPanel : MonoBehaviour
 {
-    
+    public void Help()
+    {
+        
+    }
 }
