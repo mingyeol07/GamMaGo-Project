@@ -18,9 +18,10 @@ public class ItemData : ScriptableObject
     }
 #endif
 }
-public enum Item
+public enum Item : int
 {
     Driver,
     Tarsh,
-    SmartPon
+    SmartPon,
+    Coin
 }

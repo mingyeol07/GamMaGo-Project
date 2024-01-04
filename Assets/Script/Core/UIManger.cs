@@ -94,7 +94,7 @@ public class UIManger : Singleton<UIManger>
                 {
                     HideText();
 
-                    if(_textData.Event != 0)
+                    if(_textData.Event != string.Empty)
                         Eventbus.EventInvoke(_textData.Event);
                 }
                 else

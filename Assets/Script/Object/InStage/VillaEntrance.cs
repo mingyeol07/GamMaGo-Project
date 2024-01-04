@@ -8,6 +8,7 @@ public class VillaEntrance : TouchObject
     TextList _idleText;
     public override void ItemUsing(InventoryItem code)
     {
+
         return;
     }
 

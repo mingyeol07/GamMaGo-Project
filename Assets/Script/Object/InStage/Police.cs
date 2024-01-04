@@ -8,14 +8,15 @@ public class Police : TouchObject
     protected override void Start()
     {
         base.Start();
-        Eventbus.GetEvent(3,() => gameObject.SetActive(false));
+        Eventbus.GetEvent("Police Gone", () => gameObject.SetActive(false));
     }
     public override void ItemUsing(InventoryItem code)
     {
+        MouseExitEvent();
         if (code.item.itemCode == Item.SmartPon)
         {
             code.DeleteItem();
-            Eventbus.EventInvoke(3);
+            Eventbus.EventInvoke("Police Gone");
         }
     }
 

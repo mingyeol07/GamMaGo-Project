@@ -9,14 +9,14 @@ public class GameManager : Singleton<GameManager>
     [Serializable]
     struct ItemRecipe
     {
-        public int mat1, mat2;
+        public Item mat1, mat2;
         public ItemData result;
-        public ItemRecipe(int mat1, int mat2, ItemData result)
-        {
-            this.mat1 = mat1;
-            this.mat2 = mat2;
-            this.result = result;
-        }
+        //public ItemRecipe(int mat1, int mat2, ItemData result)
+        //{
+        //    this.mat1 = mat1;
+        //    this.mat2 = mat2;
+        //    this.result = result;
+        //}
     }
     [SerializeField]
     ItemRecipe[] ItemRecipes;
@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
                 UIManger.ins.Alert(data.Name,data.Version,data.img);
         }
     }
-    public ItemData ItemSynthesis(int mat1,int mat2)
+    public ItemData ItemSynthesis(Item mat1, Item mat2)
     {
         if (ItemRecipes != null && ItemRecipes.Length > 0)
         {
