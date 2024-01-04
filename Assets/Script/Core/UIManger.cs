@@ -10,6 +10,7 @@ public class UIManger : Singleton<UIManger>
 {
     public bool isTextShow { get; private set; }
     [SerializeField] private TextBox _textBox;
+    public Camera uiCamera;
 
     private bool _nowAlert;
     [SerializeField] private PopupPanel _popup;

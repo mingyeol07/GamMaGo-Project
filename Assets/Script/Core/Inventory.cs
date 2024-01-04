@@ -25,9 +25,8 @@ public class Inventory : MonoBehaviour
     {
         if (!_items.Contains((int)data.itemCode))
         {
-            GameObject obj = Instantiate(_contentItem);
-            obj.transform.SetParent(_content.transform);
-
+            GameObject obj = Instantiate(_contentItem,_content.transform);
+            print("aaa");
             InventoryItem itemComponent = obj.GetComponentInChildren<InventoryItem>();
             //itemComponent.useEvent += () => _items.Remove(data.itemCode);
             itemComponent.SetData(data,data.img);
