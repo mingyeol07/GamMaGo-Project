@@ -18,6 +18,7 @@ public class UIManger : Singleton<UIManger>
     TextList _textData;
 
     public event Action alertEvent;
+    public event Action alertCloseEvent;
     private struct AlertData
     {
         public string title;
@@ -59,7 +60,6 @@ public class UIManger : Singleton<UIManger>
     {
         HideText();
         HideAlert();
-        InputManager.ins.SpaceKeyDown += NextText;
     }
 
     void PrintText()
@@ -70,6 +70,8 @@ public class UIManger : Singleton<UIManger>
     public void ShowText(TextList list)
     {
         alertEvent?.Invoke();
+        InputManager.ins.SpaceKeyDown += NextText;
+        NextText();
         if (!isTextShow)
         {
             isTextShow = true;
@@ -80,6 +82,7 @@ public class UIManger : Singleton<UIManger>
     }
     void HideText()
     {
+        InputManager.ins.SpaceKeyDown -= NextText;
         isTextShow = false;
         _textBox.HideText();
     }
@@ -112,6 +115,7 @@ public class UIManger : Singleton<UIManger>
         if (!_nowAlert)
         {
             _nowAlert = true;
+            alertEvent?.Invoke();
             ShowAlert();
         }
     }
@@ -153,6 +157,7 @@ public class UIManger : Singleton<UIManger>
     }
     void HideAlert()
     {
+        alertCloseEvent?.Invoke();
         _nowAlert = false;
         _popup.HidePopup();
     }

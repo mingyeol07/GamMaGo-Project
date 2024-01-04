@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private GameObject _content;
     [SerializeField] private GameObject _contentItem;
+    [SerializeField] private GameObject _effect;
     [SerializeField] private List<int> _items = new List<int>();
 
     private bool _inventoryOpen;

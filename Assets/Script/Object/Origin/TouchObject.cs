@@ -11,20 +11,23 @@ using UnityEngine.Events;
 public abstract class TouchObject : MonoBehaviour
 {
     [SerializeField] protected Item[] _interactionItem;
-    private static GameObject _effect;
+    //private static GameObject _effect;
     //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
     protected SpriteRenderer _renderer { get; private set; }
-    
+    protected SpriteOutLine _outLine { get; private set; }
+    //[SerializeField] private GameObject _effect;
+
     protected virtual void Awake()
     {
         _originPos = transform.position;
-        if (_effect == null)
+        //if (_effect == null)
         {
-            _effect = GameObject.Find("MouseOnEffect");
-            _effect.SetActive(false);
+            //_effect = GameObject.Find("MouseOnEffect");
+            //_effect.SetActive(false);
         }
         _renderer = GetComponent<SpriteRenderer>();
+        _outLine = GetComponent<SpriteOutLine>();
     }
     protected virtual void Start()
     {
@@ -54,6 +57,7 @@ public abstract class TouchObject : MonoBehaviour
     {
         if (!FollowItem.ins.isItemDrag)
         {
+            _outLine.enabled = true;
             transform.DOScale(1.1f, 0.1f);
             //_particle.SetActive(true);
         }
@@ -61,6 +65,7 @@ public abstract class TouchObject : MonoBehaviour
         {
             if(Array.Exists(_interactionItem,x => x == FollowItem.ins.item.item.itemCode))
             {
+                _outLine.enabled = true;
                 transform.DOScale(1.1f, 0.1f);
                 //_particle.SetActive(true);
             }
@@ -68,6 +73,7 @@ public abstract class TouchObject : MonoBehaviour
     }
     protected virtual void MouseExitEvent() 
     {
+        _outLine.enabled = false;
         transform.DOScale(1.0f, 0.1f);
         //_particle.SetActive(false);
     }

@@ -8,6 +8,8 @@ public class GameManager : Singleton<GameManager>
     public int nowStage;
     public bool clearCondition = false;
     public bool[] clearStage;
+    [SerializeField]
+    GameObject _effect;
 
     [SerializeField] private Inventory _inventory;
     [Serializable]
@@ -51,8 +53,11 @@ public class GameManager : Singleton<GameManager>
         foreach(ItemData data in items)
         {
             if(_inventory.GetItem(data))
-                UIManger.ins.Alert(data.Name,data.Version,data.img);
+            {
+                UIManger.ins.Alert(data.Name, data.Version, data.img);
+            }
         }
+        
     }
     public ItemData ItemSynthesis(Item mat1, Item mat2)
     {
