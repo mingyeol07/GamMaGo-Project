@@ -355,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionItem: 
   _idleText: {fileID: 11400000, guid: 92927db948807eb4ca64f2bb777d5fc1, type: 2}
+  _magazine: {fileID: 11400000, guid: 0c332d38e8a00b64b995ae7e7980de66, type: 2}
 --- !u!60 &167291720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -441,8 +442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c0d7e471f49754c8b61d72b9bcc55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionItem: 
+  _interactionItem: 08000000
   _idleText: {fileID: 11400000, guid: b93bd7cc22bea3647adb24cfbace3612, type: 2}
+  _paint: {fileID: 11400000, guid: eb775c8c807807448b4c8b59ef05d443, type: 2}
 --- !u!60 &254655826
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3191,11 +3193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9afa0deeb9550147a683c65d62d79e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nowStage: 0
+  clearCondition: 0
+  clearStage: 
   _inventory: {fileID: 831564982}
   ItemRecipes:
-  - mat1: 3
+  - mat1: 5
     mat2: 4
-    result: {fileID: 11400000, guid: 5982e5c42bfdb7b4c90006c5c4f81fef, type: 2}
+    result: {fileID: 11400000, guid: 602b4baf3cc7d4d44854c8396ef08c67, type: 2}
 --- !u!4 &1388192615
 Transform:
   m_ObjectHideFlags: 0
@@ -4308,8 +4313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001ac9fe27bdde24ea60c6a3985ffaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionItem: 
+  _interactionItem: 07000000
   _idleText: {fileID: 11400000, guid: cc06f7e5955ee2d49896580f262498c8, type: 2}
+  _policeCar: {fileID: 21300000, guid: e8450488d450fe045bd33859e9022348, type: 3}
 --- !u!60 &1852295354
 PolygonCollider2D:
   m_ObjectHideFlags: 0

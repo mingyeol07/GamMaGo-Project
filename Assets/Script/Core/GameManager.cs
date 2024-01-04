@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 public class GameManager : Singleton<GameManager>
 {
+    public int nowStage;
+    public bool clearCondition = false;
+    public bool[] clearStage;
+
     [SerializeField] private Inventory _inventory;
     [Serializable]
     struct ItemRecipe
@@ -20,6 +24,16 @@ public class GameManager : Singleton<GameManager>
     }
     [SerializeField]
     ItemRecipe[] ItemRecipes;
+
+    public void ClearCheck()
+    {
+        if (clearCondition)
+        {
+            clearStage[nowStage] = true;
+            clearCondition = false;
+        }
+        else clearCondition = true;
+    }
 
     public void GetItems(params ItemData[] items)
     {

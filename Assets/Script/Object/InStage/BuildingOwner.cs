@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class BuildingOwner : TouchObject
 {
+
     [SerializeField]
     TextList _idleText;
+    [SerializeField]
+    ItemData _paint;
+
+
     public override void ItemUsing(InventoryItem code)
     {
-        return;
+        if (code.item.itemCode == Item.Magazine)
+        {
+            GameManager.ins.GetItems(_paint);
+            code.DeleteItem();
+        }
     }
 
     protected override void TouchEvent()

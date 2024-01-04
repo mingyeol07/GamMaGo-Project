@@ -23,5 +23,10 @@ public enum Item : int
     Driver,
     Tarsh,
     SmartPon,
-    Coin
+    Coin,
+    Icecream,
+    ConstipationMedicine,
+    MedicioneIcecream,
+    paint,
+    Magazine
 }
