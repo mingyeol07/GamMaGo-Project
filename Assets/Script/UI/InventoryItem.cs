@@ -37,6 +37,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnDrag(PointerEventData eventData)
     {
         FollowItem.ins.transform.position = eventData.position;
+        //print(eventData.position);
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -90,13 +91,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(!FollowItem.ins.isItemDrag)
+        if (!FollowItem.ins.isItemDrag)
+        {
+            print("aaa");
+            transform.GetChild(0).gameObject.SetActive(true);
             transform?.DOScale(1.2f,0.2f);
+        }
         //print("Enter");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        transform.GetChild(0).gameObject.SetActive(false);
         transform?.DOScale(1.0f, 0.2f);
         //print("Exit");
     }

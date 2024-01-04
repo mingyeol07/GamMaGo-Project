@@ -11,6 +11,7 @@ using UnityEngine.Events;
 public abstract class TouchObject : MonoBehaviour
 {
     [SerializeField] protected Item[] _interactionItem;
+    [SerializeField] protected GameObject _effect;
     //private static GameObject _effect;
     //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
@@ -53,30 +54,38 @@ public abstract class TouchObject : MonoBehaviour
         if (UIManger.ins.NoneAlert())
             TouchEvent();
     }
+    void EffectOnOff(bool on)
+    {
+        GameManager.ins.effect.SetActive(on);
+    }
     protected virtual void MouseEnterEvent(int code)
     {
-        if (!FollowItem.ins.isItemDrag)
+        if (!FollowItem.ins.isItemDrag || Array.Exists(_interactionItem, x => x == FollowItem.ins.item.item.itemCode))
         {
             _outLine.enabled = true;
             transform.DOScale(1.1f, 0.1f);
+            EffectOnOff(true);
             //_particle.SetActive(true);
-        }
-        else
-        {
-            if(Array.Exists(_interactionItem,x => x == FollowItem.ins.item.item.itemCode))
-            {
-                _outLine.enabled = true;
-                transform.DOScale(1.1f, 0.1f);
-                //_particle.SetActive(true);
-            }
         }
     }
     protected virtual void MouseExitEvent() 
     {
         _outLine.enabled = false;
         transform.DOScale(1.0f, 0.1f);
+        EffectOnOff(false);
         //_particle.SetActive(false);
     }
     protected abstract void TouchEvent();
     public abstract void ItemUsing(InventoryItem code);
+    protected void SetEffect()
+    {
+        UIManger.ins.alertCloseEvent += Effect;
+    }
+    private void Effect()
+    {
+        GameObject effect = Instantiate(_effect);
+        effect.transform.position = new Vector3(transform.position.x,transform.position.y,-5);
+        effect.GetComponent<EffectMove>()._tar = new Vector3(12,0,-5);
+        UIManger.ins.alertCloseEvent -= Effect;
+    }
 }

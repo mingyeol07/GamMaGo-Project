@@ -1,13 +1,10 @@
 using UnityEngine;
 
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class SpriteOutLine : MonoBehaviour
 {
-    public Color color = Color.white;
-
-    [Range(0, 16)]
-    public int outlineSize = 1;
+    
 
     private SpriteRenderer spriteRenderer;
 
@@ -33,8 +30,8 @@ public class SpriteOutLine : MonoBehaviour
         MaterialPropertyBlock mpb = new MaterialPropertyBlock();
         spriteRenderer.GetPropertyBlock(mpb);
         mpb.SetFloat("_Outline", outline ? 1f : 0);
-        mpb.SetColor("_OutlineColor", color);
-        mpb.SetFloat("_OutlineSize", outlineSize);
+        mpb.SetColor("_OutlineColor", GameManager.ins.color);
+        mpb.SetFloat("_OutlineSize", GameManager.ins.outlineSize);
         spriteRenderer.SetPropertyBlock(mpb);
     }
 }

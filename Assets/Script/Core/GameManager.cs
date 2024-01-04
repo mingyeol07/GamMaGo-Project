@@ -8,8 +8,12 @@ public class GameManager : Singleton<GameManager>
     public int nowStage;
     public bool clearCondition = false;
     public bool[] clearStage;
-    [SerializeField]
-    GameObject _effect;
+    public GameObject effect;
+
+    public Color color = Color.white;
+
+    [Range(0, 16)]
+    public int outlineSize = 1;
 
     [SerializeField] private Inventory _inventory;
     [Serializable]
@@ -58,6 +62,10 @@ public class GameManager : Singleton<GameManager>
             }
         }
         
+    }
+    public void Update()
+    {
+        GameManager.ins.effect.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0,0,5);
     }
     public ItemData ItemSynthesis(Item mat1, Item mat2)
     {
