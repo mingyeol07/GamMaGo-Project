@@ -6,9 +6,16 @@ public class Crosswalk : TouchObject
 {
     [SerializeField]
     TextList _idleText;
+    [SerializeField]
+    GameObject Garbege;
+
     public override void ItemUsing(InventoryItem code)
     {
-        return;
+        if(code.item.itemCode == Item.Garbage)
+        {
+            code.DeleteItem();
+            Garbege.SetActive(true);
+        }
     }
 
     protected override void TouchEvent()

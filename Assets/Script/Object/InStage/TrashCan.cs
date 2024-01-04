@@ -23,7 +23,7 @@ public class TrashCan : TouchObject
     {
         if (!_isEmpty)
         {
-            GameManager.ins.GetItems(Tash);
+            GameManager.ins.GetItems(Tash, Driver);
             _isEmpty = true;
         }
         else UIManger.ins.ShowText(_emptyText);

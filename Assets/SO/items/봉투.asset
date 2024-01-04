@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c6e92a2b43a184d96414a76602b469, type: 3}
-  m_Name: Idle
+  m_Script: {fileID: 11500000, guid: e0bb1b80e8d257c43a9769afc663d026, type: 3}
+  m_Name: "\uBD09\uD22C"
   m_EditorClassIdentifier: 
-  typingSpeed: 10
-  Texts:
-  - "\uBB34\uC131\uD558\uAC8C \uC790\uB780 \uC7A1\uCD08\uB2E4"
-  Event: Get Spray
+  itemCode: 8
+  Name: "\uBD09\uD22C"
+  Version: "\uC4F0\uB808\uAE30\uB97C \uB2F4\uC744 \uBD09\uD22C\uC774\uB2E4."
+  img: {fileID: 21300000, guid: d85862fc300533b42a800ebdda4993e4, type: 3}

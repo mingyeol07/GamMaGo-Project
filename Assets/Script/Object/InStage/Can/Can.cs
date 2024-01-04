@@ -7,11 +7,11 @@ public class Can : TouchObject
     [SerializeField]
     TextList _idleText;
     [SerializeField]
-    ItemData Coin;
+    ItemData Coin, Medicine;
     protected override void Start()
     {
         base.Start();
-        Eventbus.GetEvent("Get Coin", () => GameManager.ins.GetItems(Coin));
+        Eventbus.GetEvent("Get Coin", () => GameManager.ins.GetItems(Coin, Medicine));
     }
     public override void ItemUsing(InventoryItem code)
     {

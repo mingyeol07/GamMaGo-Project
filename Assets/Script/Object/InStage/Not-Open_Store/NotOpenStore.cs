@@ -6,6 +6,16 @@ public class NotOpenStore : TouchObject
 {
     [SerializeField]
     TextList _idleText;
+    
+    [SerializeField]
+    Sprite openStore;
+    [SerializeField]
+    bool isOpen = false;
+
+ 
+
+    public ItemData Coffee;
+
     public override void ItemUsing(InventoryItem code)
     {
         return;
@@ -13,6 +23,14 @@ public class NotOpenStore : TouchObject
 
     protected override void TouchEvent()
     {
-        UIManger.ins.ShowText(_idleText);
+        if (!isOpen)
+        {
+            isOpen = true;
+            _renderer.sprite = openStore;
+        }
+        else
+        {
+            GameManager.ins.GetItems(Coffee);
+        }
     }
 }

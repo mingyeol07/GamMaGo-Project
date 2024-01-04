@@ -71,13 +71,13 @@ public class UIManger : Singleton<UIManger>
     {
         alertEvent?.Invoke();
         InputManager.ins.SpaceKeyDown += NextText;
-        NextText();
         if (!isTextShow)
         {
             isTextShow = true;
             _textData = list;
             _textIndex = 0;
             _textBox.ShowText();
+            NextText();
         }
     }
     void HideText()

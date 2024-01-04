@@ -27,5 +27,9 @@ public enum Item : int
     ConstipationMedicine,
     MedicioneIcecream,
     paint,
-    Magazine
+    Magazine,
+    Envelope,
+    Spray,
+    Garbage,
+    Coffee
 }

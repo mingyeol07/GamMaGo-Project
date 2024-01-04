@@ -5,6 +5,7 @@ using UnityEngine;
 public class RedCar : TouchObject
 {
     [SerializeField] private ItemData itemData;
+    [SerializeField] private TextList textList;
 
     public override void ItemUsing(InventoryItem code)
     {
@@ -13,6 +14,6 @@ public class RedCar : TouchObject
 
     protected override void TouchEvent()
     {
-        GameManager.ins.GetItems(itemData);
+        UIManger.ins.ShowText(textList);
     }
 }

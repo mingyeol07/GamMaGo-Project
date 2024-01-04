@@ -6,9 +6,16 @@ public class Couple : TouchObject
 {
     [SerializeField]
     TextList _idleText;
+
+    [SerializeField]
+    Sprite Angry;
     public override void ItemUsing(InventoryItem code)
     {
-        return;
+        if(code.item.itemCode == Item.Coffee)
+        {
+            _renderer.sprite = Angry;
+            code.DeleteItem();
+        }
     }
 
     protected override void TouchEvent()

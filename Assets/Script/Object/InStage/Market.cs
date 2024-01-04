@@ -9,6 +9,18 @@ public class Market : TouchObject
     TextList _idleText;
     [SerializeField]
     ItemData _iceCream;
+    [SerializeField]
+    Sprite CloseMarket;
+    [SerializeField]
+    GameObject Graffiti;
+
+    private void Start()
+    {
+        Eventbus.GetEvent("Set Angry", () => {
+            _renderer.sprite = CloseMarket;
+        }
+        );
+    }
 
     public override void ItemUsing(InventoryItem code)
     {
@@ -16,7 +28,15 @@ public class Market : TouchObject
         {
             GameManager.ins.GetItems(_iceCream);
             code.DeleteItem();
+
+
         }
+        else if (code.item.itemCode == Item.Spray)
+        {
+            Graffiti.SetActive(true);
+            code.DeleteItem();
+        }
+        
     }
 
     protected override void TouchEvent()
