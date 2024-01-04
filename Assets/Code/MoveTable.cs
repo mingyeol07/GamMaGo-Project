@@ -95,4 +95,21 @@ public class MoveTable : MonoBehaviour
             _helpImage[2].SetActive(false);
         }
     }
+
+    public void helpBack()
+    {
+        if (_helpImage[1].activeSelf == true)
+        {
+            _helpImage[0].SetActive(true);
+            _helpImage[1].SetActive(false);
+            _helpImage[2].SetActive(false);
+        }
+        else if (_helpImage[2].activeSelf == true)
+        {
+            HelpPnael();
+            _helpImage[0].SetActive(false);
+            _helpImage[1].SetActive(true);
+            _helpImage[2].SetActive(false);
+        }
+    }
 }
