@@ -6,8 +6,8 @@ using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Collider2D))]
-[AddComponentMenu("devchanho/TouchObject")]
+[RequireComponent(typeof(Collider2D), typeof(SpriteRenderer))]
+//[AddComponentMenu("devchanho/TouchObject")]
 public abstract class TouchObject : MonoBehaviour
 {
     [SerializeField] protected Item[] _interactionItem;
