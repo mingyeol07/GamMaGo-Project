@@ -11,7 +11,7 @@ public class Can : TouchObject
     protected override void Start()
     {
         base.Start();
-
+        Eventbus.GetEvent("Get Coin", () => GameManager.ins.GetItems(Coin));
     }
     public override void ItemUsing(InventoryItem code)
     {

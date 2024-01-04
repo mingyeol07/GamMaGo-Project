@@ -9,7 +9,10 @@ public class Police : TouchObject
     protected override void Start()
     {
         base.Start();
-        Eventbus.GetEvent("Police Gone", () => gameObject.SetActive(false));
+        Eventbus.GetEvent("Police Gone", () => {
+            gameObject.SetActive(false);
+            if (GameManager.ins.nowStage == 0) GameManager.ins.ClearCheck();
+         });
         Eventbus.GetEvent("Set PoliceCar", () => _carIsSetting = true) ;
         _carIsSetting = false;
     }

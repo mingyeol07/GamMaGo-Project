@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class MoveTable : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MoveTable : MonoBehaviour
 
     [SerializeField] private GameObject _helpPanel;
     [SerializeField] private GameObject[] _helpImage;
+    [SerializeField] private GameObject _back;
 
     public void LeftMove()
     {
@@ -55,7 +57,7 @@ public class MoveTable : MonoBehaviour
         {
             group.alpha = 1;
             group.blocksRaycasts = true;
-            group.interactable= true;
+            group.interactable = true;
         }
         else
         {
@@ -63,6 +65,8 @@ public class MoveTable : MonoBehaviour
             group.blocksRaycasts = false;
             group.interactable = false;
         }
+
+
     }
     public void HelpPnael()
     {
@@ -110,6 +114,22 @@ public class MoveTable : MonoBehaviour
             _helpImage[0].SetActive(false);
             _helpImage[1].SetActive(true);
             _helpImage[2].SetActive(false);
+        }
+    }
+
+    public void ChapterBack()
+    {
+        if (_back.gameObject.activeSelf == true)
+        {
+            _rightBtn.gameObject.SetActive(false);
+            Camera.main.transform.position = _rightMovePos.position;
+            _leftBtn.gameObject.SetActive(true);
+            _upBtn.gameObject.SetActive(true);
+            _back.gameObject.SetActive(false);
+        }
+        else
+        {
+            _back.gameObject.SetActive(true);
         }
     }
 }

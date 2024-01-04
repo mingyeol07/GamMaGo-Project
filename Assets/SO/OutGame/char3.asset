@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c6e92a2b43a184d96414a76602b469, type: 3}
+  m_Name: char3
+  m_EditorClassIdentifier: 
+  typingSpeed: 10
+  Texts:
+  - "\uAE38\uAC70\uB9AC\uC5D0 \uC4F0\uB808\uAE30\uAC00 \uC788\uC5B4\uC11C \uB0C4\uC0C8\uAC00
+    \uB098."
+  - "\uC4F0\uB808\uAE30\uAC00 \uC5C6\uC5B4\uC9C0\uBA74 \uAE30\uBD84\uC774 \uC88B\uC744\uD150\uB370~"
+  Event: ChatOff

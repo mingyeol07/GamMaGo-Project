@@ -21,7 +21,6 @@ public class ItemData : ScriptableObject
 public enum Item : int
 {
     Driver,
-    Tarsh,
     SmartPon,
     Coin,
     Icecream,
