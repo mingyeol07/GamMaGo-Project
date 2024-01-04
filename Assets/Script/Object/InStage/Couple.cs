@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Couple : TouchObject
 {
+    [SerializeField]
+    TextList _idleText;
     public override void ItemUsing(InventoryItem code)
     {
         return;
@@ -11,6 +13,6 @@ public class Couple : TouchObject
 
     protected override void TouchEvent()
     {
-        throw new System.NotImplementedException();
+        UIManger.ins.ShowText(_idleText);
     }
 }

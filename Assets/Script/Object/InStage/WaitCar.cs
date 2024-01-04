@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class WaitCar : TouchObject
 {
+    [SerializeField]
+    TextList _idleText;
     public override void ItemUsing(InventoryItem code)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     protected override void TouchEvent()
     {
-
+        UIManger.ins.ShowText(_idleText);
     }
 }
