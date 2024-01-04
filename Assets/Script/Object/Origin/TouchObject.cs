@@ -11,7 +11,7 @@ using UnityEngine.Events;
 public abstract class TouchObject : MonoBehaviour
 {
     [SerializeField] protected Item[] _interactionItem;
-    private GameObject _effect;
+    private static GameObject _effect;
     //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
     

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Idle
   m_EditorClassIdentifier: 
   typingSpeed: 10
-  Texts: []
-  Event: 0
+  Texts:
+  - "\uBC14\uB78C\uC5D0 \uD384\uB7ED\uAC70\uB9AC\uACE0 \uC788\uB2E4"
+  Event: 
