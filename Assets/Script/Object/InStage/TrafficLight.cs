@@ -6,17 +6,13 @@ public class TrafficLight : TouchObject
 {
     [SerializeField] TextList _idleText;
     [SerializeField] TextList _notWorkText;
-    [SerializeField] GameObject _notWorkImage;
+    [SerializeField] Sprite _notWorkImage;
     private bool _isNotWork;
     protected override void Start()
     {
         base.Start();
         _isNotWork = false;
-        Eventbus.GetEvent("Light break", () => {
-            _notWorkImage.SetActive(true);
-            gameObject.SetActive(false);
-        });
-        _notWorkImage.SetActive(false);
+        Eventbus.GetEvent("Light break", () => _renderer.sprite = _notWorkImage);
     }
     public override void ItemUsing(InventoryItem code)
     {
