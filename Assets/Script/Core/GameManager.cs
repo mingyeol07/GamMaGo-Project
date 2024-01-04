@@ -28,6 +28,7 @@ public class GameManager : Singleton<GameManager>
     ItemRecipe[] ItemRecipes;
     private void Start()
     {
+        nowStage = 3;
         Screen.SetResolution(1080, 1920, true);
     }
     //void OnPreCull() => GL.Clear(true, true, Color.black);
@@ -38,6 +39,11 @@ public class GameManager : Singleton<GameManager>
         {
             clearStage[nowStage] = true;
             clearCondition = false;
+            
+            nowStage = 3;
+            BottleManager.ins.buttonOff();
+            BottleManager.ins.SadBottle();
+
         }
         else clearCondition = true;
     }

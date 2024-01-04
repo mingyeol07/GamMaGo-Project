@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bb1b80e8d257c43a9769afc663d026, type: 3}
   m_Name: "\uC544\uC774\uC2A4\uD06C\uB9BC"
   m_EditorClassIdentifier: 
-  itemCode: 4
+  itemCode: 3
   Name: "\uC544\uC774\uC2A4\uD06C\uB9BC"
-  Version: "\uB2EC\uCF64\uD55C \uCD08\uCF54\uBC14\uB2D0\uB77C\uC544\uC774\uC2A4\uD06C\uB9BC\uC774\uB2E4."
+  Version: "\uB2EC\uCF64\uD55C \uCD08\uCF54\uBC14\uB2D0\uB77C\uC544\uC774\uC2A4\uD06C\uB9BC\uC774\uB2E4.\uB204\uAD70\uAC00\uC5D0\uAC8C
+    \uBA39\uC77C \uC218 \uC788\uC744\uC9C0\uB3C4"
   img: {fileID: 21300000, guid: bb8879cc0eb73ef43ada8566e9b1251a, type: 3}

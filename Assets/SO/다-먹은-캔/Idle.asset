@@ -15,4 +15,4 @@ MonoBehaviour:
   typingSpeed: 10
   Texts:
   - "\uBC84\uB824\uC838 \uC788\uB294 \uCE94\uC774\uB2E4"
-  Event: 0
+  Event: Get Coin

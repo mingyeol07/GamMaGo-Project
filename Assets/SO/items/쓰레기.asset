@@ -15,4 +15,4 @@ MonoBehaviour:
   itemCode: 1
   Name: "\uC4F0\uB808\uAE30"
   Version: "\uB0C4\uC0C8\uB098\uACE0 \uB354\uB7EC\uC6B4 \uC4F0\uB808\uAE30"
-  img: {fileID: 0}
+  img: {fileID: 21300000, guid: 677c8cd92c4af0f478317dd8ad0258d2, type: 3}

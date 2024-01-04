@@ -8,7 +8,7 @@ public class RedCar : TouchObject
 
     public override void ItemUsing(InventoryItem code)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     protected override void TouchEvent()

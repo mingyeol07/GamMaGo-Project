@@ -12,7 +12,10 @@ public class TrafficLight : TouchObject
     {
         base.Start();
         _isNotWork = false;
-        Eventbus.GetEvent("Light break", () => _renderer.sprite = _notWorkImage);
+        Eventbus.GetEvent("Light break", () => {
+            _renderer.sprite = _notWorkImage;
+            if (GameManager.ins.nowStage == 0) GameManager.ins.ClearCheck(); }
+        );
     }
     public override void ItemUsing(InventoryItem code)
     {
