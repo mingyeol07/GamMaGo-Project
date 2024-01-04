@@ -45,13 +45,11 @@ public class MoveTable : MonoBehaviour
         {
             group.alpha = 1;
             group.blocksRaycasts = true;
-            _MoveBtn.gameObject.SetActive(false);
         }
         else
         {
             group.alpha = 0;
             group.blocksRaycasts = false;
-            _MoveBtn.gameObject.SetActive(true);
         }
     }
 }

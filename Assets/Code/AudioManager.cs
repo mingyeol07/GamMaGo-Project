@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioManager : Singleton<AudioManager>
-{ /*
+{ 
     private AudioSource bgm_player;
     private AudioSource sfx_player;
 
@@ -42,5 +42,5 @@ public class AudioManager : Singleton<AudioManager>
     {
         sfx_player.clip = audio_clips[i];
         sfx_player.Play();
-    } */
+    } 
 }
