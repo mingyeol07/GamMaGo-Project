@@ -78,6 +78,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void UseItem(TouchObject obj)
     {
+        if(obj != null)
         obj.ItemUsing(this);
             //DeleteItem();
     }
