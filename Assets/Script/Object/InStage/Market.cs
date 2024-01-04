@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Market : TouchObject
 {
+    [SerializeField]
+    TextList _idleText;
     public override void ItemUsing(InventoryItem code)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     protected override void TouchEvent()
     {
-        throw new System.NotImplementedException();
+        UIManger.ins.ShowText(_idleText);
     }
 }

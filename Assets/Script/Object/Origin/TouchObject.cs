@@ -10,7 +10,7 @@ using UnityEngine.Events;
 [AddComponentMenu("devchanho/TouchObject")]
 public abstract class TouchObject : MonoBehaviour
 {
-    [SerializeField] protected int[] _interactionItem;
+    [SerializeField] protected Item[] _interactionItem;
     //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
     
@@ -21,13 +21,14 @@ public abstract class TouchObject : MonoBehaviour
     protected virtual void Start()
     {
         MouseExitEvent();
+        UIManger.ins.alertEvent += MouseExitEvent;
         //_particle = transform.GetChild(0).gameObject;
     }
     private void OnMouseEnter()
     {
         
         if (UIManger.ins.NoneAlert())
-            if (FollowItem.ins.isItemDrag) MouseEnterEvent(FollowItem.ins.item.item.itemCode);
+            if (FollowItem.ins.isItemDrag) MouseEnterEvent((int)FollowItem.ins.item.item.itemCode);
             else MouseEnterEvent(0);
 
     }

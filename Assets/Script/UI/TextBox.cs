@@ -11,7 +11,7 @@ public class TextBox : MonoBehaviour
     [SerializeField] Image _bg;
     [SerializeField] TextMeshProUGUI _text;
     private string _textStr;
-    private CanvasGroup _canvasGroup;
+    [SerializeField] private CanvasGroup _canvasGroup;
     public bool isTyping { get; private set; }
 
     private void Awake()

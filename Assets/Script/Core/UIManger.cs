@@ -69,7 +69,7 @@ public class UIManger : Singleton<UIManger>
     }
     public void ShowText(TextList list)
     {
-        alertEvent();
+        alertEvent?.Invoke();
         if (!isTextShow)
         {
             isTextShow = true;
@@ -94,7 +94,8 @@ public class UIManger : Singleton<UIManger>
                 {
                     HideText();
 
-                    Eventbus.EventInvoke(_textData.Event);
+                    if(_textData.Event != 0)
+                        Eventbus.EventInvoke(_textData.Event);
                 }
                 else
                 {

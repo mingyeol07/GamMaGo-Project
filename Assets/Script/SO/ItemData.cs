@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Item",menuName = "Data/itemData",order = 1)]
 public class ItemData : ScriptableObject
 {
-    public int itemCode;
+    public Item itemCode;
     public string Name;
     public string Version;
     public Sprite img;
@@ -17,4 +17,10 @@ public class ItemData : ScriptableObject
         Debug.Log($"{name}:{itemCode}");
     }
 #endif
+}
+public enum Item
+{
+    Driver,
+    Tarsh,
+    SmartPon
 }

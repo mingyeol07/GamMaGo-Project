@@ -16,8 +16,9 @@ public class AudioManager : Singleton<AudioManager>
 
     public AudioClip[] audio_clips;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         bgm_player = GameObject.Find("BGMPlayer").GetComponent<AudioSource>();
         sfx_player = GameObject.Find("SFXPlayer").GetComponent<AudioSource>();
 
