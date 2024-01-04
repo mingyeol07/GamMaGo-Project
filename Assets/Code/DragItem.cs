@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler
+public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler, IEndDragHandler
 {
     public int itemCode;
     [SerializeField] private Canvas canvas;
@@ -66,5 +66,10 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointer
         Sequence mySequence = DOTween.Sequence();
         
         
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+       
     }
 }

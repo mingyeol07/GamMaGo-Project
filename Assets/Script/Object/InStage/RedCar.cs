@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RedCar : TouchObject
 {
+    [SerializeField] private ItemData itemData;
+
     public override void ItemUsing(InventoryItem code)
     {
         throw new System.NotImplementedException();
@@ -11,6 +13,6 @@ public class RedCar : TouchObject
 
     protected override void TouchEvent()
     {
-        throw new System.NotImplementedException();
+        GameManager.ins.GetItems(itemData);
     }
 }

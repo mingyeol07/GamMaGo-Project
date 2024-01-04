@@ -11,6 +11,6 @@ public class WaitCar : TouchObject
 
     protected override void TouchEvent()
     {
-        throw new System.NotImplementedException();
+
     }
 }
