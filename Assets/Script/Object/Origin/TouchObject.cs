@@ -14,15 +14,17 @@ public abstract class TouchObject : MonoBehaviour
     private static GameObject _effect;
     //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
+    protected SpriteRenderer _renderer { get; private set; }
     
     protected virtual void Awake()
     {
         _originPos = transform.position;
-        if(_effect == null)
+        if (_effect == null)
         {
             _effect = GameObject.Find("MouseOnEffect");
             _effect.SetActive(false);
         }
+        _renderer = GetComponent<SpriteRenderer>();
     }
     protected virtual void Start()
     {
