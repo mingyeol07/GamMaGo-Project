@@ -6,6 +6,13 @@ public class Can : TouchObject
 {
     [SerializeField]
     TextList _idleText;
+    [SerializeField]
+    ItemData Coin;
+    protected override void Start()
+    {
+        base.Start();
+
+    }
     public override void ItemUsing(InventoryItem code)
     {
         return;

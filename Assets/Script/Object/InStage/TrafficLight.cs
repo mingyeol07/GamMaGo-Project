@@ -14,11 +14,12 @@ public class TrafficLight : TouchObject
     }
     public override void ItemUsing(InventoryItem code)
     {
+        MouseExitEvent();
         if ((code.item.itemCode) == Item.Driver)
         {
             code.DeleteItem();
             _isNotWork = true;
-            Eventbus.EventInvoke(2);
+            Eventbus.EventInvoke("Light break");
         }
     }
 

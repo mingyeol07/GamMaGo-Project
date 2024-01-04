@@ -11,12 +11,18 @@ using UnityEngine.Events;
 public abstract class TouchObject : MonoBehaviour
 {
     [SerializeField] protected Item[] _interactionItem;
+    private GameObject _effect;
     //GameObject _particle;
     protected Vector3 _originPos { get; private set; }
     
     protected virtual void Awake()
     {
         _originPos = transform.position;
+        if(_effect == null)
+        {
+            _effect = GameObject.Find("MouseOnEffect");
+            _effect.SetActive(false);
+        }
     }
     protected virtual void Start()
     {

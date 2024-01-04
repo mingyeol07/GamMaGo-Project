@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75c6e92a2b43a184d96414a76602b469, type: 3}
-  m_Name: "\uC2E0\uD638\uB4F1"
+  m_Name: Idle
   m_EditorClassIdentifier: 
   typingSpeed: 10
   Texts:
-  - "\uD3C9\uBC94\uD55C \uC2E0\uD638\uB4F1\uC774\uB2E4"
+  - "\uB300\uD654\uB97C \uD558\uACE0 \uC788\uB294 \uCEE4\uD50C\uC774\uB2E4"
   Event: 0

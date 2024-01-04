@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class TextList : ScriptableObject
 {
     //public float TypingSpeed; 
-    public float typingSpeed;
+    public float typingSpeed = 10;
     public string[] Texts;
-    public int Event;
+    public string Event;
 }

@@ -15,6 +15,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<int> _items = new List<int>();
 
     private bool _inventoryOpen;
+    private void Start()
+    {
+        _inventoryOpen = true;
+         DOTween.Rewind(transform); transform.localPosition = new Vector3(!_inventoryOpen ? 810 : 1110, 0);
+    }
     public bool GetItem(ItemData data)
     {
         if (!_items.Contains((int)data.itemCode))

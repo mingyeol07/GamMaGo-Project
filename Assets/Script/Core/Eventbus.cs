@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class Eventbus : MonoBehaviour
 {
     //전역 변수로
-    private static readonly Dictionary<int, UnityEvent> events = new Dictionary<int, UnityEvent>();
-    public static void GetEvent(int code,UnityAction e)
+    private static readonly Dictionary<string, UnityEvent> events = new Dictionary<string, UnityEvent>();
+    public static void GetEvent(string code,UnityAction e)
     {
         UnityEvent eve;
         if(events.TryGetValue(code,out eve))
@@ -21,7 +21,7 @@ public class Eventbus : MonoBehaviour
             events.Add(code, eve);
         }
     }
-    public static void RemoveEvent(int code, UnityAction e)
+    public static void RemoveEvent(string code, UnityAction e)
     {
         UnityEvent eve;
         if (events.TryGetValue(code, out eve))
@@ -29,7 +29,7 @@ public class Eventbus : MonoBehaviour
             eve.RemoveListener(e);
         }
     }
-    public static void EventInvoke(int code)
+    public static void EventInvoke(string code)
     {
         UnityEvent eve;
         if (events.TryGetValue(code, out eve))eve?.Invoke();
