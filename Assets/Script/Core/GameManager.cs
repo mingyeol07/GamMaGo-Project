@@ -20,6 +20,11 @@ public class GameManager : Singleton<GameManager>
     }
     [SerializeField]
     ItemRecipe[] ItemRecipes;
+    private void Start()
+    {
+        Screen.SetResolution(1080, 1920, true);
+    }
+    //void OnPreCull() => GL.Clear(true, true, Color.black);
 
     public void GetItems(params ItemData[] items)
     {
