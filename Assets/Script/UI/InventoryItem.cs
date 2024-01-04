@@ -58,8 +58,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void OnDrop(PointerEventData eventData)
     {
-        int itemCode = FollowItem.ins.item.item.itemCode;
-        ItemData itemData = GameManager.ins.ItemSynthesis(item.itemCode, itemCode);
+        int itemCode = (int)FollowItem.ins.item.item.itemCode;
+        ItemData itemData = GameManager.ins.ItemSynthesis(((int)item.itemCode), itemCode);
         if (itemData != null)
         {
             GameManager.ins.GetItems(itemData);

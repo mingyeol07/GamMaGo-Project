@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
     private bool _inventoryOpen;
     public bool GetItem(ItemData data)
     {
-        if (!_items.Contains(data.itemCode))
+        if (!_items.Contains((int)data.itemCode))
         {
             GameObject obj = Instantiate(_contentItem);
             obj.transform.SetParent(_content.transform);
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
             //item.GetComponentInChildren<UnityEngine.UI.Image>().sprite = data.img;
             //itemComponent.item = data.itemCode;
 
-            _items.Add(data.itemCode);
+            _items.Add((int)data.itemCode);
             //UIManger.ins.Alert(data.Name, data.Version,data.img);
             return true;
         }

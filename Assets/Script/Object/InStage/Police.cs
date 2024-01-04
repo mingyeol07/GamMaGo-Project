@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Police : TouchObject
 {
+    [SerializeField] TextList _touchText;
+    protected override void Start()
+    {
+        base.Start();
+        Eventbus.GetEvent(3,() => gameObject.SetActive(false));
+    }
     public override void ItemUsing(InventoryItem code)
     {
-        throw new System.NotImplementedException();
+        if (code.item.itemCode == Item.SmartPon)
+        {
+            code.DeleteItem();
+            Eventbus.EventInvoke(3);
+        }
     }
 
     protected override void TouchEvent()
     {
-        throw new System.NotImplementedException();
+        UIManger.ins.ShowText(_touchText);
     }
 }

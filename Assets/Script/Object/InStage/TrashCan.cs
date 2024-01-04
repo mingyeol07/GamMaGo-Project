@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class TrashCan : TouchObject
 {
+    [SerializeField]
+    ItemData Driver, Tash;
+    [SerializeField]
+    TextList _emptyText;
+    private bool _isEmpty = false;
+    protected override void Start()
+    {
+        base.Start();
+        _isEmpty = false;
+    }
     public override void ItemUsing(InventoryItem code)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     protected override void TouchEvent()
     {
-        throw new System.NotImplementedException();
+        if (!_isEmpty)
+        {
+            GameManager.ins.GetItems(Driver, Tash);
+            _isEmpty = true;
+        }
+        else UIManger.ins.ShowText(_emptyText);
     }
 }
